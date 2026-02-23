@@ -1,5 +1,14 @@
 import requests
 import time
+import os
+from http.server import HTTPServer, BaseHTTPRequestHandler
+import threading
+
+# 3 dòng này giúp Render thấy cổng mở và không báo lỗi nữa
+def run_server():
+    server = HTTPServer(('0.0.0.0', int(os.environ.get("PORT", 8080))), BaseHTTPRequestHandler)
+    server.serve_forever()
+threading.Thread(target=run_server, daemon=True).start()
 
 def send_telegram_message(message):
     token = "7649557476:AAH66AAnP-pXl0_SsqTAn0uP896z6N5_x8E"
@@ -11,7 +20,6 @@ def send_telegram_message(message):
     except Exception as e:
         print(f"Loi: {e}")
 
-# Thong bao khi bot bat dau chay
 send_telegram_message("Bao cao chu nhan Atu: Bot da san sang!")
 
 while True:
