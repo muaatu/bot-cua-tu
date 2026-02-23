@@ -1,4 +1,3 @@
-
 import requests
 import time
 
@@ -16,6 +15,5 @@ def send_telegram_message(message):
 send_telegram_message("Bao cao chu nhan Atu: Bot da san sang!")
 
 while True:
-    # Day la noi sau nay ong them code kiem tra Wifi
     print("Bot dang hoat dong...")
     time.sleep(60)
