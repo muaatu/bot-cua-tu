@@ -1,10 +1,11 @@
+
 import requests
 import time
 import os
 from http.server import HTTPServer, BaseHTTPRequestHandler
 import threading
 
-# 3 dòng này giúp Render thấy cổng mở và không báo lỗi nữa
+# Đoạn này giúp Render thấy cổng mở và không báo lỗi nữa
 def run_server():
     server = HTTPServer(('0.0.0.0', int(os.environ.get("PORT", 8080))), BaseHTTPRequestHandler)
     server.serve_forever()
